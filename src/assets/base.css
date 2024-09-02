@@ -1,0 +1,33 @@
+/* color palette */
+:root {
+  --th-white: #ffffff;
+  --th-black: #222222;
+  --th-gray: #f4f4f6;
+
+  --th-text-light: var(--th-black);
+  --th-text-dark: var(--th-gray);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--th-white);
+  --color-text: var(--th-text-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--th-black);
+    --color-text: var(--th-text-dark);
+  }
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+}
