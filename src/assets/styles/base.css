@@ -1,8 +1,11 @@
 /* color palette */
 :root {
   --th-white: #ffffff;
-  --th-black: #222222;
+  --th-black: #555555;
   --th-gray: #f4f4f6;
+  --th-teal: #58B1BE;
+  --th-blue: #587EBE;
+  --th-red: #BE6558;
 
   --th-text-light: var(--th-black);
   --th-text-dark: var(--th-gray);
@@ -24,10 +27,28 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background: linear-gradient(to right, var(--th-teal), var(--th-blue));
   transition:
     color 0.5s,
     background-color 0.5s;
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: clamp(1rem, 1rem + 3.5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
 }
