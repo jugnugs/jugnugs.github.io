@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TopBar from './TopBar.vue';
-
+import DoubleDownIcon from '../assets/svg/double-down.svg';
 
 </script>
 
@@ -11,7 +11,11 @@ import TopBar from './TopBar.vue';
             <div class="title">Frontend Developer</div>
             <div class="subtitle">react. vue. javascript/typescript.</div>
         </div>
-        <div class="scroll">scroll down</div>
+        <div class="scroll">
+            <DoubleDownIcon class="icon" />
+            scroll down
+            <DoubleDownIcon class="icon" />
+        </div>
     </div>
 </template>
 
@@ -38,6 +42,18 @@ import TopBar from './TopBar.vue';
 
 .subtitle {
     font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
+}
+
+.scroll {
+    display: flex;
+    align-items: end;
+    gap: 1rem;
+    padding-bottom: 5px;
+}
+
+.scroll>.icon {
+    width: 20px;
+    height: 20px;
 }
 
 @media (max-width: 767px) {
