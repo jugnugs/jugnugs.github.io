@@ -5,7 +5,7 @@ import TopBar from './TopBar.vue';
 </script>
 
 <template>
-    <div class="title-card">
+    <div class="title-card space-mono">
         <TopBar />
         <div class="center">
             <div class="title">Frontend Developer</div>
@@ -17,12 +17,11 @@ import TopBar from './TopBar.vue';
 
 <style scoped>
 .title-card {
+    background: linear-gradient(to right, var(--th-teal), var(--th-blue));
+    z-index: 10;
     width: 100%;
     height: 100vh;
     color: var(--th-text-dark);
-    font-family: "Space Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,5 +38,11 @@ import TopBar from './TopBar.vue';
 
 .subtitle {
     font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
+}
+
+@media (max-width: 767px) {
+    .title-card {
+        background: linear-gradient(to bottom, var(--th-teal), var(--th-blue));
+    }
 }
 </style>

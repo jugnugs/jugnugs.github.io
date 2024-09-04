@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import LinkedinLogo from '../assets/svg/linkedin.svg';
 import GithubLogo from '../assets/svg/github.svg';
+import ButtonComponent from './ButtonComponent.vue';
+
+const redirectToMail = () => {
+    window.open("mailto:julialn.sunni@gmail.com");
+}
+
 </script>
 
 <template>
@@ -10,8 +16,13 @@ import GithubLogo from '../assets/svg/github.svg';
             <span>julia nguyen</span>
         </div>
         <div class="tray">
-            <LinkedinLogo class="logo" />
-            <GithubLogo class="logo" />
+            <a href="https://www.linkedin.com/in/julialnguyen" target="_blank">
+                <LinkedinLogo class="logo" />
+            </a>
+            <a href="https://github.com/jugnugs" target="_blank">
+                <GithubLogo class="logo" />
+            </a>
+            <ButtonComponent label="contact" :handle-click="redirectToMail" :is-white-mode="true" />
         </div>
     </div>
 </template>
@@ -29,6 +40,7 @@ import GithubLogo from '../assets/svg/github.svg';
 
 .left,
 .tray {
+    height: 40px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -43,5 +55,15 @@ img,
 
 .left img {
     opacity: 60%;
+}
+
+@media (max-width: 767px) {
+    .left img {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
 }
 </style>

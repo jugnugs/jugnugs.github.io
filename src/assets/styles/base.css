@@ -27,12 +27,19 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: linear-gradient(to right, var(--th-teal), var(--th-blue));
+  background: var(--color-background);
+  /* background: linear-gradient(to right, var(--th-teal), var(--th-blue)); */
   transition:
     color 0.5s,
     background-color 0.5s;
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
+}
+
+.space-mono {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1,
@@ -47,8 +54,30 @@ h4 {
 h1 {
   font-weight: 700;
   font-size: clamp(1rem, 1rem + 3.5vw, 4rem);
+  color: var(--th-red);
 }
 
 h2 {
   font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
+}
+
+p {
+  font-size: clamp(1rem, 1rem + 0.5vw, 1.5rem);
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: var(--th-black);
 }
