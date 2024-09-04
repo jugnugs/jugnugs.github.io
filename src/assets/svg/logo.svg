@@ -2,54 +2,25 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="11"
-   height="16"
+   width="28"
+   height="40"
    viewBox="0 0 11 16"
    version="1.1"
    id="svg1"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="px"
-     inkscape:zoom="46.1875"
-     inkscape:cx="8"
-     inkscape:cy="9.7320704"
-     inkscape:window-width="1920"
-     inkscape:window-height="974"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
   <defs
-     id="defs1">
-    <rect
-       x="2.4682002"
-       y="2.1650879"
-       width="13.207037"
-       height="13.618403"
-       id="rect1" />
-  </defs>
+     id="defs1" />
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1">
     <text
        xml:space="preserve"
-       id="text1"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.3333px;line-height:0.85;font-family:Allison;-inkscape-font-specification:Allison;white-space:pre;shape-inside:url(#rect1);fill:#ffffff"
-       transform="translate(-1.5721492,-1.6887686)"><tspan
-         x="2.46875"
-         y="13.012976"
-         id="tspan1">J</tspan></text>
+       style="font-size:17.3333px;line-height:0.85;font-family:Allison;-inkscape-font-specification:Allison;fill:#ffffff"
+       x="0.75557947"
+       y="11.484808"
+       id="text1"><tspan
+         id="tspan1"
+         x="0.75557947"
+         y="11.484808">J</tspan></text>
   </g>
 </svg>

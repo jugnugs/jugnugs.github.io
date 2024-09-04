@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PersonalLogo from '../assets/svg/logo.svg';
 import LinkedinLogo from '../assets/svg/linkedin.svg';
 import GithubLogo from '../assets/svg/github.svg';
 import ButtonComponent from './ButtonComponent.vue';
@@ -12,7 +13,7 @@ const redirectToMail = () => {
 <template>
     <div class="top">
         <div class="left">
-            <img src="../assets/svg/logo.svg">
+            <PersonalLogo class="logo" />
             <span>julia nguyen</span>
         </div>
         <div class="tray">
@@ -47,21 +48,12 @@ const redirectToMail = () => {
 
 }
 
-img,
 .logo {
     width: 40px;
     height: 40px;
 }
 
-.left img {
-    opacity: 60%;
-}
-
 @media (max-width: 767px) {
-    .left img {
-        display: none;
-    }
-
     .logo {
         display: none;
     }
