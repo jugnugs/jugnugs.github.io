@@ -29,7 +29,7 @@ import GithubLogo from '../assets/svg/github.svg';
     height: fit-content;
     padding: 30px 120px;
     background: linear-gradient(to right, var(--th-teal), var(--th-blue));
-    color: var(--th-text-dark);
+    color: var(--th-text-light);
     display: flex;
     gap: 20vh;
     align-items: center;

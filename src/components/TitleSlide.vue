@@ -21,7 +21,7 @@ import TopBar from './TopBar.vue';
     z-index: 10;
     width: 100%;
     height: 100vh;
-    color: var(--th-text-dark);
+    color: var(--th-text-light);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

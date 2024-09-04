@@ -7,21 +7,14 @@
   --th-blue: #587EBE;
   --th-red: #BE6558;
 
-  --th-text-light: var(--th-black);
-  --th-text-dark: var(--th-gray);
+  --th-text-light: var(--th-white);
+  --th-text-dark: var(--th-black);
 }
 
 /* semantic color variables for this project */
 :root {
   --color-background: var(--th-white);
-  --color-text: var(--th-text-light);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--th-black);
-    --color-text: var(--th-text-dark);
-  }
+  --color-text: var(--th-text-dark);
 }
 
 body {

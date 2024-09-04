@@ -49,9 +49,8 @@ const downloadFile = () => {
     z-index: -1;
     width: 100%;
     height: 50vh;
-    /* height: calc(10rem + 20vh); */
     padding: 50px 10vw;
-    color: var(--th-text-light);
+    color: var(--th-text-dark);
     background: var(--th-white);
     display: flex;
     justify-content: center;
@@ -70,6 +69,7 @@ const downloadFile = () => {
     height: fit-content;
     padding: 100px 10vw;
     background: var(--th-white);
+    color: var(--th-text-dark);
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -94,17 +94,11 @@ const downloadFile = () => {
     padding-bottom: 30px;
 }
 
-@media (max-width: 800px) {
-    .box-container {
-        flex-direction: column;
-    }
-}
-
 .hr {
     font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
     width: 100%;
     text-align: center;
-    color: var(--th-text-dark);
+    color: var(--th-text-light);
     margin-bottom: 10px;
 }
 
@@ -144,12 +138,16 @@ img.photo {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 767px) or (orientation: portrait) {
     .section {
         flex-direction: column;
         height: 100vh;
         padding: 30% 10%;
         text-align: center;
+    }
+
+    .box-container {
+        flex-direction: column;
     }
 
     .more-text {
