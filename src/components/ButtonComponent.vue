@@ -22,6 +22,7 @@ const { label, handleClick, isWhiteMode } = defineProps(['label', 'handleClick',
     padding: 10px;
     border: 1px solid rgb(85, 85, 85, 50%);
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .label {
