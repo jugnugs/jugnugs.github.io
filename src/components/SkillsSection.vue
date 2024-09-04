@@ -34,11 +34,9 @@ const downloadFile = () => {
                 <p>ASP.NET, PostgreSQL</p>
             </div>
         </div>
-        <div class="resume-button">
-            <ButtonComponent label="see my full resume?" :handle-click="downloadFile">
-                <DownloadIcon class="icon" />
-            </ButtonComponent>
-        </div>
+        <ButtonComponent label="see my full resume?" :handle-click="downloadFile">
+            <DownloadIcon class="icon" />
+        </ButtonComponent>
     </div>
 </template>
 
@@ -49,7 +47,7 @@ const downloadFile = () => {
     z-index: -1;
     width: 100%;
     height: 50vh;
-    padding: 50px 10vw;
+    padding: 50px 20vw;
     color: var(--th-text-dark);
     background: var(--th-white);
     display: flex;
@@ -67,7 +65,7 @@ const downloadFile = () => {
 .more-text {
     width: 100%;
     height: fit-content;
-    padding: 100px 10vw;
+    padding: 100px 20vw;
     background: var(--th-white);
     color: var(--th-text-dark);
     display: flex;
@@ -79,7 +77,7 @@ const downloadFile = () => {
 .box-container {
     width: 100%;
     display: flex;
-    gap: 10vw;
+    gap: 5vw;
 }
 
 .box {
@@ -95,7 +93,7 @@ const downloadFile = () => {
 }
 
 .hr {
-    font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
+    font-size: clamp(1rem, 1rem + 1.5vw, 1.5rem);
     width: 100%;
     text-align: center;
     color: var(--th-text-light);
@@ -111,8 +109,11 @@ const downloadFile = () => {
 }
 
 .photo-box {
+    display: flex;
+    align-items: center;
     height: 100%;
-    width: fit-content;
+    max-width: 40%;
+    text-align: center;
 }
 
 .desc {
@@ -138,7 +139,7 @@ img.photo {
 }
 
 
-@media (max-width: 767px) or (orientation: portrait) {
+@media (max-width: 1100px) or (orientation: portrait) {
     .section {
         flex-direction: column;
         height: 100vh;
@@ -155,8 +156,8 @@ img.photo {
     }
 
     .photo-box {
-        width: 50vw;
-        height: auto;
+        max-width: 80%;
+        max-height: 50vh;
     }
 }
 </style>

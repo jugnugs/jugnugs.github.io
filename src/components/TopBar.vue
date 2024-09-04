@@ -36,7 +36,7 @@ const redirectToMail = () => {
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px 10px 30px;
-    font-size: clamp(1rem, 1rem + 1.5vw, 2rem);
+    font-size: clamp(1rem, 1rem + 1.5vw, 1.5rem);
 }
 
 .left,
