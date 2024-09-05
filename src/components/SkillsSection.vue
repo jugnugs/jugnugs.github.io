@@ -21,7 +21,7 @@ const resumeLabel = computed(() => {
 <template>
     <div class="section">
         <div class="photo-box">
-            <img class="photo" src="../assets/png/photo.jpg">
+            <img class="photo" src="../assets/png/photo2.png">
         </div>
         <div class="desc">
             <h1>{{ $t("Description.header") }}👋</h1>

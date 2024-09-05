@@ -13,3 +13,8 @@
     place-items: center;
   }
 }
+
+body:has(.requires-no-scroll) {
+  height: 100%;
+  overflow: hidden;
+}

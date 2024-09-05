@@ -1,8 +1,9 @@
 <script setup lang="ts">
+const { darkMode } = defineProps(['darkMode']);
 </script>
 
 <template>
-    <div class="locale-changer">
+    <div class="locale-changer" :class="{ darkMode }">
         <label>
             <input type="radio" v-model="$i18n.locale" value="en" />
             <span>EN</span>
@@ -25,6 +26,11 @@
     align-items: center;
 }
 
+.darkMode {
+    border: 1px solid var(--th-black);
+    color: var(--th-text-dark);
+}
+
 label {
     height: 100%;
     width: 50%;
@@ -42,6 +48,11 @@ label:has(> input[value="ja"]) {
 label:has(> input:checked) {
     color: var(--th-blue);
     background: var(--th-white);
+}
+
+.darkMode label:has(> input:checked) {
+    color: var(--th-white);
+    background: var(--th-black);
 }
 
 label input {
