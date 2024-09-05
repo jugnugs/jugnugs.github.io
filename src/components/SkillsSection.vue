@@ -1,13 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import ButtonComponent from './ButtonComponent.vue';
 import DownloadIcon from './DownloadIcon.vue';
+
+const t = useI18n().t;
 
 const isButtonHovered = ref(false);
 
 const downloadFile = () => {
     console.log('download file');
 };
+
+const resumeLabel = computed(() => {
+    return t("Skills.resume");
+})
+
 </script>
 
 <template>
@@ -16,10 +24,8 @@ const downloadFile = () => {
             <img class="photo" src="../assets/png/photo.jpg">
         </div>
         <div class="desc">
-            <h1>Hi, I'm Julia.👋</h1>
-            <p>I’m a software engineer with passion for frontend web development, based in Tokyo, Japan. I love building
-                things in React or Vue, but I also have some backend experience as well. Let’s build
-                something together!</p>
+            <h1>{{ $t("Description.header") }}👋</h1>
+            <p>{{ $t("Description.bio") }}</p>
         </div>
     </div>
     <div class="divider">
@@ -37,8 +43,8 @@ const downloadFile = () => {
                 <p>ASP.NET, PostgreSQL</p>
             </div>
         </div>
-        <ButtonComponent label="see my full resume?" @handle-click="downloadFile"
-            @apply-hover="() => isButtonHovered = true" @remove-hover="() => isButtonHovered = false">
+        <ButtonComponent :label="resumeLabel" @handle-click="downloadFile" @apply-hover="() => isButtonHovered = true"
+            @remove-hover="() => isButtonHovered = false">
             <DownloadIcon :is-hovered="isButtonHovered" />
         </ButtonComponent>
     </div>

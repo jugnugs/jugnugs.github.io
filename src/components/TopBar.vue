@@ -1,12 +1,21 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import PersonalLogo from '../assets/svg/logo.svg';
 import LinkedinLogo from '../assets/svg/linkedin.svg';
 import GithubLogo from '../assets/svg/github.svg';
 import ButtonComponent from './ButtonComponent.vue';
+import LocaleToggler from './LocaleToggler.vue';
+
+const t = useI18n().t;
 
 const redirectToMail = () => {
     window.open("mailto:julialn.sunni@gmail.com");
 }
+
+const contactLabel = computed(() => {
+    return t("TitleCard.contact");
+})
 
 </script>
 
@@ -23,7 +32,8 @@ const redirectToMail = () => {
             <a href="https://github.com/jugnugs" target="_blank">
                 <GithubLogo class="logo" />
             </a>
-            <ButtonComponent label="contact" @handle-click="redirectToMail" :is-white-mode="true" />
+            <ButtonComponent :label="contactLabel" @handle-click="redirectToMail" :is-white-mode="true" />
+            <LocaleToggler class="toggler" />
         </div>
     </div>
 </template>
@@ -54,7 +64,9 @@ const redirectToMail = () => {
 }
 
 @media (max-width: 767px) {
-    .logo {
+
+    .logo,
+    .toggler {
         display: none;
     }
 }

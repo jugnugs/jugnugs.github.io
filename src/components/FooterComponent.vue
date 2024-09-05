@@ -6,7 +6,7 @@ import GithubLogo from '../assets/svg/github.svg';
 <template>
     <div class="section">
         <div class="top space-mono">
-            <div class="big">get in touch</div>
+            <div class="big">{{ $t("Footer.header") }}</div>
             <div class="email">
                 <a href="mailto:julialn.sunni@gmail.com" target="_blank">julialn.sunni@gmail.com</a>
             </div>
@@ -40,6 +40,7 @@ import GithubLogo from '../assets/svg/github.svg';
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 1rem;
 }
 

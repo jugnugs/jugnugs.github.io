@@ -8,12 +8,12 @@ import DoubleDownIcon from '../assets/svg/double-down.svg';
     <div class="title-card space-mono">
         <TopBar />
         <div class="center">
-            <div class="title">Frontend Developer</div>
+            <div class="title">{{ $t("TitleCard.title") }}</div>
             <div class="subtitle">react. vue. javascript/typescript.</div>
         </div>
         <div class="scroll">
             <DoubleDownIcon class="icon" />
-            scroll down
+            {{ $t("TitleCard.scroll") }}
             <DoubleDownIcon class="icon" />
         </div>
     </div>
