@@ -23,7 +23,7 @@ const redirectToMail = () => {
             <a href="https://github.com/jugnugs" target="_blank">
                 <GithubLogo class="logo" />
             </a>
-            <ButtonComponent label="contact" :handle-click="redirectToMail" :is-white-mode="true" />
+            <ButtonComponent label="contact" @handle-click="redirectToMail" :is-white-mode="true" />
         </div>
     </div>
 </template>

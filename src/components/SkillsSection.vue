@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import ButtonComponent from './ButtonComponent.vue';
-import DownloadIcon from '../assets/svg/download.svg';
+import DownloadIcon from './DownloadIcon.vue';
+
+const isButtonHovered = ref(false);
 
 const downloadFile = () => {
     console.log('download file');
@@ -34,8 +37,9 @@ const downloadFile = () => {
                 <p>ASP.NET, PostgreSQL</p>
             </div>
         </div>
-        <ButtonComponent label="see my full resume?" :handle-click="downloadFile">
-            <DownloadIcon class="icon" />
+        <ButtonComponent label="see my full resume?" @handle-click="downloadFile"
+            @apply-hover="() => isButtonHovered = true" @remove-hover="() => isButtonHovered = false">
+            <DownloadIcon :is-hovered="isButtonHovered" />
         </ButtonComponent>
     </div>
 </template>
@@ -126,18 +130,6 @@ img.photo {
     max-width: 100%;
     max-height: 100%;
 }
-
-.icon {
-    width: 40px;
-    height: 40px;
-}
-
-@media (max-width: 450px) {
-    .icon {
-        display: none;
-    }
-}
-
 
 @media (max-width: 1100px) or (orientation: portrait) {
     .section {

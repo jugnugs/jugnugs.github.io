@@ -1,9 +1,10 @@
 <script setup lang="ts">
-const { label, handleClick, isWhiteMode } = defineProps(['label', 'handleClick', 'isWhiteMode']);
+const { label, isWhiteMode } = defineProps(['label', 'isWhiteMode']);
 </script>
 
 <template>
-    <div class="button space-mono" :class="{ whiteMode: isWhiteMode }" @click="handleClick">
+    <div class="button space-mono" :class="{ whiteMode: isWhiteMode }" @click="$emit('handleClick')"
+        @mouseover="$emit('apply-hover')" @mouseleave="$emit('remove-hover')">
         <slot></slot>
         <div class="label">
             {{ label }}
@@ -24,18 +25,37 @@ const { label, handleClick, isWhiteMode } = defineProps(['label', 'handleClick',
     border: 1px solid rgb(85, 85, 85, 50%);
     border-radius: 5px;
     cursor: pointer;
+    transition:
+        color 0.5s,
+        background 0.5s;
 }
 
 .label {
     text-align: center;
 }
 
+.button:hover {
+    color: var(--th-text-light);
+    background: linear-gradient(to right, var(--th-teal), var(--th-blue));
+}
+
+.button:hover svg path {
+    fill: white;
+    stroke: white;
+}
+
+
 .whiteMode {
     border: 1px solid var(--th-white);
 }
 
+.whiteMode.button:hover {
+    color: var(--th-blue);
+    background: var(--th-text-light);
+}
+
 @media (max-width: 1100px) or (orientation: portrait) {
-    .button {
+    .more-text .button {
         width: 100%;
     }
 }
