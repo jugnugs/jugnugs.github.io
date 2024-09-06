@@ -19,19 +19,21 @@ const resumeLabel = computed(() => {
 </script>
 
 <template>
-    <div class="section">
-        <div class="photo-box">
-            <img class="photo" src="../assets/png/photo2.png">
-        </div>
-        <div class="desc">
-            <h1>{{ $t("Description.header") }}👋</h1>
-            <p>{{ $t("Description.bio") }}</p>
+    <div data-scroll-section>
+        <div class="section" data-scroll data-scroll-speed="5" data-scroll-direction="bottom">
+            <div class="photo-box">
+                <img class="photo" src="../assets/png/photo2.png">
+            </div>
+            <div class="desc">
+                <h1>{{ $t("Description.header") }}👋</h1>
+                <p>{{ $t("Description.bio") }}</p>
+            </div>
         </div>
     </div>
-    <div class="divider">
+    <div class="divider" data-scroll-section>
     </div>
-    <div class="more-text">
-        <div class="box-container">
+    <div class="more-text" data-scroll-section>
+        <div class="box-container fade-in-container" data-scroll data-scroll-class="animate" data-scroll-repeat="true">
             <div class="box teal">
                 <div class="hr space-mono">frontend development</div>
                 <p>HTML/CSS, JavaScript, TypeScript</p>
@@ -43,8 +45,9 @@ const resumeLabel = computed(() => {
                 <p>ASP.NET, PostgreSQL</p>
             </div>
         </div>
-        <ButtonComponent :label="resumeLabel" @handle-click="downloadFile" @apply-hover="() => isButtonHovered = true"
-            @remove-hover="() => isButtonHovered = false">
+        <ButtonComponent class="fade-in-container" :label="resumeLabel" @handle-click="downloadFile"
+            @apply-hover="() => isButtonHovered = true" @remove-hover="() => isButtonHovered = false" data-scroll
+            data-scroll-class="animate" data-scroll-repeat="true">
             <DownloadIcon :is-hovered="isButtonHovered" />
         </ButtonComponent>
     </div>
@@ -52,11 +55,8 @@ const resumeLabel = computed(() => {
 
 <style scoped>
 .section {
-    position: sticky;
-    bottom: 0vh;
-    z-index: -1;
     width: 100%;
-    height: 50vh;
+    height: fit-content;
     padding: 50px 20vw;
     color: var(--th-text-dark);
     background: var(--th-white);
@@ -135,6 +135,19 @@ img.photo {
     border-radius: 100%;
     max-width: 100%;
     max-height: 100%;
+}
+
+.fade-in-container {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+}
+
+.animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition:
+        opacity 0.9s ease-in,
+        transform 0.9s ease-in;
 }
 
 @media (max-width: 1100px) or (orientation: portrait) {

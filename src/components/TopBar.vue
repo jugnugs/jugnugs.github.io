@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import PersonalLogo from '../assets/svg/logo.svg';
 import LinkedinLogo from '../assets/svg/linkedin.svg';
@@ -7,9 +7,6 @@ import GithubLogo from '../assets/svg/github.svg';
 import MenuIcon from '../assets/svg/hamburger.svg';
 import ButtonComponent from './ButtonComponent.vue';
 import LocaleToggler from './LocaleToggler.vue';
-import MobileModal from './MobileModal.vue';
-
-const displayModal = ref(false);
 
 const t = useI18n().t;
 
@@ -20,10 +17,6 @@ const redirectToMail = () => {
 const contactLabel = computed(() => {
     return t("TitleCard.contact");
 });
-
-const toggleMenu = () => {
-    displayModal.value = !displayModal.value;
-};
 
 </script>
 
@@ -43,11 +36,9 @@ const toggleMenu = () => {
             <ButtonComponent class="hide-mobile" :label="contactLabel" @handle-click="redirectToMail"
                 :is-white-mode="true" />
             <LocaleToggler class="hide-mobile" />
-            <MenuIcon class="logo show-mobile" @click="toggleMenu" />
+            <MenuIcon class="logo show-mobile" @click="$parent?.$emit('openModal')" />
         </div>
     </div>
-    <MobileModal v-if="displayModal" class="requires-no-scroll" @close-modal="toggleMenu"
-        @redirect-mail="redirectToMail" />
 </template>
 
 <style scoped>

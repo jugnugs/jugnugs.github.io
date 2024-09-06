@@ -2,16 +2,18 @@
 import TopBar from './TopBar.vue';
 import DoubleDownIcon from '../assets/svg/double-down.svg';
 
+defineEmits(['openModal']);
+
 </script>
 
 <template>
-    <div class="title-card space-mono">
+    <div class="title-card space-mono" data-scroll-section>
         <TopBar />
-        <div class="center">
+        <div class="center" data-scroll data-scroll-speed="10">
             <div class="title">{{ $t("TitleCard.title") }}</div>
             <div class="subtitle">react. vue. javascript/typescript.</div>
         </div>
-        <div class="scroll">
+        <div class="scroll bounce">
             <DoubleDownIcon class="icon" />
             {{ $t("TitleCard.scroll") }}
             <DoubleDownIcon class="icon" />
@@ -22,7 +24,6 @@ import DoubleDownIcon from '../assets/svg/double-down.svg';
 <style scoped>
 .title-card {
     background: linear-gradient(to right, var(--th-teal), var(--th-blue));
-    z-index: 10;
     width: 100%;
     height: 100vh;
     color: var(--th-text-light);
@@ -54,6 +55,31 @@ import DoubleDownIcon from '../assets/svg/double-down.svg';
 .scroll>.icon {
     width: 20px;
     height: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .bounce {
+        animation: bounce 2s ease-in infinite;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-15px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 @media (max-width: 767px) {

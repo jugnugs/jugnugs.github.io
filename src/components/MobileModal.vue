@@ -20,6 +20,7 @@ import CancelIcon from '../assets/svg/cancel.svg';
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 99;
     height: 100vh;
     width: 100vw;
     background: var(--th-white);
