@@ -19,7 +19,7 @@ const resumeLabel = computed(() => {
 </script>
 
 <template>
-    <div data-scroll-section>
+    <div class="wrapper" data-scroll-section>
         <div class="section" data-scroll data-scroll-speed="5" data-scroll-direction="bottom">
             <div class="photo-box">
                 <img class="photo" src="../assets/png/photo2.png">
@@ -32,28 +32,35 @@ const resumeLabel = computed(() => {
     </div>
     <div class="divider" data-scroll-section>
     </div>
-    <div class="more-text" data-scroll-section>
-        <div class="box-container fade-in-container" data-scroll data-scroll-class="animate" data-scroll-repeat="true">
-            <div class="box teal">
-                <div class="hr space-mono">frontend development</div>
-                <p>HTML/CSS, JavaScript, TypeScript</p>
-                <p>React.js, Vue3, Figma</p>
+    <div class="wrapper" data-scroll-section>
+        <div class="skills-container fade-in-container" data-scroll data-scroll-class="animate"
+            data-scroll-repeat="true">
+            <div class="box-container">
+                <div class="box teal">
+                    <div class="hr space-mono">frontend development</div>
+                    <p>HTML/CSS, JavaScript, TypeScript</p>
+                    <p>React.js, Vue3, Figma</p>
+                </div>
+                <div class="box blue">
+                    <div class="hr space-mono">backend development</div>
+                    <p>C#, Python, SQL</p>
+                    <p>ASP.NET, PostgreSQL</p>
+                </div>
             </div>
-            <div class="box blue">
-                <div class="hr space-mono">backend development</div>
-                <p>C#, Python, SQL</p>
-                <p>ASP.NET, PostgreSQL</p>
-            </div>
+            <ButtonComponent :label="resumeLabel" @handle-click="downloadFile"
+                @apply-hover="() => isButtonHovered = true" @remove-hover="() => isButtonHovered = false">
+                <DownloadIcon :is-hovered="isButtonHovered" />
+            </ButtonComponent>
         </div>
-        <ButtonComponent class="fade-in-container" :label="resumeLabel" @handle-click="downloadFile"
-            @apply-hover="() => isButtonHovered = true" @remove-hover="() => isButtonHovered = false" data-scroll
-            data-scroll-class="animate" data-scroll-repeat="true">
-            <DownloadIcon :is-hovered="isButtonHovered" />
-        </ButtonComponent>
     </div>
 </template>
 
 <style scoped>
+.wrapper {
+    width: 100%;
+    height: fit-content;
+}
+
 .section {
     width: 100%;
     height: fit-content;
@@ -72,7 +79,7 @@ const resumeLabel = computed(() => {
     background: linear-gradient(to right, hsl(0, 0%, 100%), var(--th-teal), var(--th-blue), hsl(0, 0%, 100%));
 }
 
-.more-text {
+.skills-container {
     width: 100%;
     height: fit-content;
     padding: 100px 20vw;
@@ -154,7 +161,7 @@ img.photo {
     .section {
         flex-direction: column;
         height: 100vh;
-        padding: 30% 10%;
+        padding: 10%;
         text-align: center;
     }
 
@@ -162,7 +169,7 @@ img.photo {
         flex-direction: column;
     }
 
-    .more-text {
+    .skills-container {
         padding: 10%;
     }
 
