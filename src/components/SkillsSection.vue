@@ -50,7 +50,7 @@ const resumeLabel = computed(() => {
                 <h1 class="no-sticky">skills</h1>
                 <div class="box-container">
                     <div v-for="(value, key) in skills" class="box" :key="key">
-                        <h2>{{ key }}</h2>
+                        <h2>{{ $t(`Skills.${key}`) }}</h2>
                         <div class="skill-card-container">
                             <div class="skill-card space-mono" v-for="skill in value" :key="skill">
                                 {{ skill }}
