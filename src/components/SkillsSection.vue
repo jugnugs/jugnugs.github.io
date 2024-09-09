@@ -4,6 +4,14 @@ import { useI18n } from 'vue-i18n';
 import ButtonComponent from './ButtonComponent.vue';
 import DownloadIcon from './DownloadIcon.vue';
 
+const skills = {
+    languages: ["JavaScript", "TypeScript", "HTML", "CSS", "C#", "Python"],
+    frameworks: ["React", "Vue", "Vite", "Node.js", "Express.js", "ASP.NET"],
+    tools: ["VS Code", "Git", "npm", "Figma", "Docker", "Jira"],
+    cloud: ["Azure", "AWS", "Firebase"],
+    databases: ["MySQL", "PostgreSQL"],
+}
+
 const t = useI18n().t;
 
 const isButtonHovered = ref(false);
@@ -35,22 +43,26 @@ const resumeLabel = computed(() => {
     <div class="wrapper" data-scroll-section>
         <div class="skills-container fade-in-container" data-scroll data-scroll-class="animate"
             data-scroll-repeat="true">
-            <div class="box-container">
-                <div class="box teal">
-                    <div class="hr space-mono">frontend development</div>
-                    <p>HTML/CSS, JavaScript, TypeScript</p>
-                    <p>React.js, Vue3, Figma</p>
+            <div class="box-wrapper">
+                <div class="header-wrapper" data-scroll data-scroll-sticky data-scroll-target=".box-wrapper">
+                    <h1>skills</h1>
                 </div>
-                <div class="box blue">
-                    <div class="hr space-mono">backend development</div>
-                    <p>C#, Python, SQL</p>
-                    <p>ASP.NET, PostgreSQL</p>
+                <h1 class="no-sticky">skills</h1>
+                <div class="box-container">
+                    <div v-for="(value, key) in skills" class="box" :key="key">
+                        <h2>{{ key }}</h2>
+                        <div class="skill-card-container">
+                            <div class="skill-card space-mono" v-for="skill in value" :key="skill">
+                                {{ skill }}
+                            </div>
+                        </div>
+                    </div>
+                    <ButtonComponent class="add-margin" :label="resumeLabel" @handle-click="downloadFile"
+                        @apply-hover="() => isButtonHovered = true" @remove-hover="() => isButtonHovered = false">
+                        <DownloadIcon :is-hovered="isButtonHovered" />
+                    </ButtonComponent>
                 </div>
             </div>
-            <ButtonComponent :label="resumeLabel" @handle-click="downloadFile"
-                @apply-hover="() => isButtonHovered = true" @remove-hover="() => isButtonHovered = false">
-                <DownloadIcon :is-hovered="isButtonHovered" />
-            </ButtonComponent>
         </div>
     </div>
 </template>
@@ -91,38 +103,66 @@ const resumeLabel = computed(() => {
     align-items: center;
 }
 
-.box-container {
+.box-wrapper {
+    position: relative;
     width: 100%;
     display: flex;
-    gap: 5vw;
+    gap: 10%;
+}
+
+.header-wrapper {
+    position: relative;
+    width: 10%;
+    height: 100%;
+}
+
+.header-wrapper>h1 {
+    width: fit-content;
+    height: fit-content;
+    transform-origin: 0 0;
+    transform: translateY(30vh) rotate(270deg);
+}
+
+h1.no-sticky {
+    display: none;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 1.5rem;
 }
 
 .box {
     width: 100%;
     height: fit-content;
+}
+
+.skill-card-container {
+    padding-top: 1rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    gap: 10px;
+}
+
+.skill-card {
+    width: fit-content;
+    padding: 1rem;
     border: 1px solid rgb(85, 85, 85, 50%);
     border-radius: 5px;
-    padding-bottom: 30px;
+    box-shadow: 2px 2px 5px rgb(85, 85, 85, 20%);
+    transition: 0.5s;
 }
 
-.hr {
-    font-size: clamp(1rem, 1rem + 1.5vw, 1.5rem);
-    width: 100%;
-    text-align: center;
+.skill-card:hover {
     color: var(--th-text-light);
-    margin-bottom: 10px;
+    background-color: var(--th-teal);
 }
 
-.box.teal>.hr {
-    background: var(--th-teal);
-}
-
-.box.blue>.hr {
-    background: var(--th-blue);
+.add-margin {
+    margin-top: 2rem;
 }
 
 .photo-box {
@@ -164,12 +204,45 @@ img.photo {
         text-align: center;
     }
 
-    .box-container {
+    .box-wrapper {
         flex-direction: column;
+    }
+
+    .header-wrapper {
+        display: none;
+    }
+
+    h1.no-sticky {
+        display: block;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+
+    .box-container {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        width: 100%;
+        text-align: center;
     }
 
     .skills-container {
         padding: 10%;
+    }
+
+    .skill-card-container {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .skill-card {
+        padding: 10px;
     }
 
     .photo-box {
