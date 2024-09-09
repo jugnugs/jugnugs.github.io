@@ -9,7 +9,8 @@ defineEmits(['openModal']);
 <template>
     <div class="title-card space-mono" data-scroll-section>
         <TopBar />
-        <div class="center" data-scroll data-scroll-speed="10">
+        <div class="center fade-in-container" data-scroll data-scroll-repeat="true" data-scroll-speed="10"
+            data-scroll-class="animate">
             <div class="title">{{ $t("TitleCard.title") }}</div>
             <div class="subtitle">react. vue. javascript/typescript.</div>
         </div>

@@ -5,7 +5,7 @@ import GithubLogo from '../assets/svg/github.svg';
 
 <template>
     <div class="section" data-scroll-section>
-        <div class="top space-mono" data-scroll data-scroll-repeat="true" data-scroll-class="animate"
+        <div class="top space-mono fade-in-container" data-scroll data-scroll-repeat="true" data-scroll-class="animate"
             data-scroll-speed="5">
             <div class="big">{{ $t("Footer.header") }}</div>
             <div class="email">

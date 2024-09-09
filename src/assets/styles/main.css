@@ -15,7 +15,21 @@
   }
 }
 
+html:has(.requires-no-scroll),
 body:has(.requires-no-scroll) {
   height: 100%;
   overflow: hidden;
+}
+
+.fade-in-container {
+  opacity: 0;
+  transform: translate3d(0, 100px, 0);
+}
+
+.animate {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.9s ease-in,
+    transform 0.9s ease-in;
 }

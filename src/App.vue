@@ -14,12 +14,6 @@ let scroll: any;
 onMounted(() => {
   scroll = new LocomotiveScroll({
     el: containerRef.value,
-    smooth: true,
-    tablet: {
-      smooth: true,
-      breakpoint: 0,
-      multiplier: 10
-    }
   });
 });
 

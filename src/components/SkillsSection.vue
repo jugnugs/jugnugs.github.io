@@ -28,7 +28,7 @@ const resumeLabel = computed(() => {
 
 <template>
     <div class="wrapper" data-scroll-section>
-        <div class="section" data-scroll data-scroll-speed="5" data-scroll-direction="bottom">
+        <div class="section fade-in-container" data-scroll data-scroll-class="animate" data-scroll-speed="5">
             <div class="photo-box">
                 <img class="photo" src="../assets/png/photo2.png">
             </div>
@@ -41,10 +41,9 @@ const resumeLabel = computed(() => {
     <div class="divider" data-scroll-section>
     </div>
     <div class="wrapper" data-scroll-section>
-        <div class="skills-container fade-in-container" data-scroll data-scroll-class="animate"
-            data-scroll-repeat="true">
+        <div class="skills-container fade-in-container" data-scroll data-scroll-class="animate">
             <div class="box-wrapper">
-                <div class="header-wrapper" data-scroll data-scroll-sticky data-scroll-target=".box-wrapper">
+                <div class="header-wrapper">
                     <h1>skills</h1>
                 </div>
                 <h1 class="no-sticky">skills</h1>
@@ -111,16 +110,15 @@ const resumeLabel = computed(() => {
 }
 
 .header-wrapper {
-    position: relative;
-    width: 10%;
+    position: sticky;
+    top: 10vh;
+    width: 20%;
     height: 100%;
 }
 
 .header-wrapper>h1 {
     width: fit-content;
     height: fit-content;
-    transform-origin: 0 0;
-    transform: translateY(30vh) rotate(270deg);
 }
 
 h1.no-sticky {
@@ -130,7 +128,7 @@ h1.no-sticky {
 .box-container {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
     gap: 1.5rem;
 }
 
@@ -182,19 +180,6 @@ img.photo {
     border-radius: 100%;
     max-width: 100%;
     max-height: 100%;
-}
-
-.fade-in-container {
-    opacity: 0;
-    transform: translate3d(0, 100px, 0);
-}
-
-.animate {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    transition:
-        opacity 0.9s ease-in,
-        transform 0.9s ease-in;
 }
 
 @media (max-width: 1100px) or (orientation: portrait) {
