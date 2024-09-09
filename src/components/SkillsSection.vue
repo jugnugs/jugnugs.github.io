@@ -160,7 +160,6 @@ img.photo {
 @media (max-width: 1100px) or (orientation: portrait) {
     .section {
         flex-direction: column;
-        height: 100vh;
         padding: 10%;
         text-align: center;
     }
