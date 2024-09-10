@@ -181,8 +181,8 @@ h1.no-sticky {
 .photo-box {
     display: flex;
     align-items: center;
-    height: 100%;
     max-width: 40%;
+    height: auto;
     text-align: center;
 }
 
@@ -247,7 +247,6 @@ img.photo {
 
     .photo-box {
         max-width: 80%;
-        max-height: 50vh;
     }
 }
 </style>
