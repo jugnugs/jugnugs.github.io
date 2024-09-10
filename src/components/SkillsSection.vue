@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import axios from 'axios';
 import ButtonComponent from './ButtonComponent.vue';
 import DownloadIcon from './DownloadIcon.vue';
 
 const skills = {
     languages: ["JavaScript", "TypeScript", "HTML", "CSS", "C#", "Python"],
-    frameworks: ["React", "Vue", "Vite", "Node.js", "Express.js", "ASP.NET"],
-    tools: ["VS Code", "Git", "npm", "Figma", "Docker", "Jira"],
+    frameworks: ["React", "Vue", "Vite", "Nuxt.js", "Node.js", "Express.js", "ASP.NET"],
+    tools: ["VS Code", "Git", "npm", "Figma", "Postman", "Docker", "Jira"],
     cloud: ["Azure", "AWS", "Firebase"],
     databases: ["MySQL", "PostgreSQL"],
 }
@@ -17,7 +18,18 @@ const t = useI18n().t;
 const isButtonHovered = ref(false);
 
 const downloadFile = () => {
-    console.log('download file');
+    axios.get('/files/resume.pdf', {
+        responseType: 'blob'
+    }).then((response) => {
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(
+            new Blob([response.data])
+        );
+        link.setAttribute('download', 'Julia Nguyen - resume.pdf');
+
+        document.body.appendChild(link);
+        link.click();
+    }).catch(console.error);
 };
 
 const resumeLabel = computed(() => {
@@ -138,8 +150,10 @@ h1.no-sticky {
 }
 
 .skill-card-container {
+    width: 100%;
     padding-top: 1rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: start;
     align-items: center;
     gap: 10px;
@@ -147,6 +161,7 @@ h1.no-sticky {
 
 .skill-card {
     width: fit-content;
+    height: fit-content;
     padding: 1rem;
     border: 1px solid rgb(85, 85, 85, 50%);
     border-radius: 5px;
