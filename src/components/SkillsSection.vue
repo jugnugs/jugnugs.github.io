@@ -42,7 +42,7 @@ const resumeLabel = computed(() => {
     <div class="wrapper" data-scroll-section>
         <div class="section fade-in-container" data-scroll data-scroll-class="animate" data-scroll-speed="5">
             <div class="photo-box">
-                <img class="photo" src="../assets/png/photo2.png">
+                <img class="photo" src="../assets/images/photo2.jpg">
             </div>
             <div class="desc">
                 <h1>{{ $t("Description.header") }}👋</h1>
